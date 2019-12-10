@@ -9,6 +9,7 @@ namespace Srmklive\PayPal\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Srmklive\PayPal\Services\AdaptivePayments;
+use Srmklive\PayPal\Services\DisputesPayments;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PayPalServiceProvider extends ServiceProvider
@@ -61,6 +62,10 @@ class PayPalServiceProvider extends ServiceProvider
 
         $this->app->singleton('adaptive_payments', function () {
             return new AdaptivePayments();
+        });
+
+        $this->app->singleton('dispute_payments', function () {
+            return new DisputesPayments();
         });
     }
 
