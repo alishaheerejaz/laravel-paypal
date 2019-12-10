@@ -251,6 +251,8 @@ trait PayPalRequest
             $this->setAdaptivePaymentsOptions();
         } elseif ($this instanceof \Srmklive\PayPal\Services\ExpressCheckout) {
             $this->setExpressCheckoutOptions($credentials);
+        } elseif ($this instanceof \Srmklive\PayPal\Services\DisputesPayments) {
+            $this->setDisputesPaymentsOptions($credentials);
         } else {
             throw new \Exception('Invalid api credentials provided for PayPal!. Please provide the right api credentials.');
         }
